@@ -1,0 +1,7 @@
+First attemption to create project managment system
+baseed on scrum and several others ideas.
+
+Project scheme:
+  db-scheme: database scheme in xml format for http://ondras.zarovi.cz/sql/demo/
+     |_ db.xml
+
