@@ -1,378 +1,600 @@
-QL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
 <!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
 <sql>
-	<datatypes db="mysql">
-		    <group label="Numeric" color="rgb(238,238,170)">
-					         <type label="TINYINT" length="0" sql="TINYINT" quote=""/>
-									          <type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
-														         <type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
-																		          <type label="INT" length="0" sql="INT" quote=""/>
-																							        <type label="Integer" length="0" sql="INTEGER" quote=""/>
-																											        <type label="BIGINT" length="0" sql="BIGINT" quote=""/>
-																															        <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
-																																			        <type label="Single precision" length="0" sql="FLOAT" quote=""/>
-																																							        <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
-																																											    </group>
+<datatypes db="mysql">
+<group label="Numeric" color="rgb(238,238,170)">
+<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+<type label="INT" length="0" sql="INT" quote=""/>
+<type label="Integer" length="0" sql="INTEGER" quote=""/>
+<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+</group>
 
-																																													    <group label="Character" color="rgb(255,200,200)">
-																																																        <type label="Char" length="1" sql="CHAR" quote="'"/>
-																																																				        <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
-																																																								        <type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
-																																																												        <type label="Binary" length="1" sql="BINARY" quote="'"/>
-																																																																        <type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
-																																																																				        <type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
-																																																																								    </group>
+<group label="Character" color="rgb(255,200,200)">
+<type label="Char" length="1" sql="CHAR" quote="'"/>
+<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+<type label="Binary" length="1" sql="BINARY" quote="'"/>
+<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+</group>
 
-																																																																										    <group label="Date &amp; Time" color="rgb(200,255,200)">
-																																																																													        <type label="Date" length="0" sql="DATE" quote="'"/>
-																																																																																	        <type label="Time" length="0" sql="TIME" quote="'"/>
-																																																																																					        <type label="Datetime" length="0" sql="DATETIME" quote="'"/>
-																																																																																									        <type label="Year" length="0" sql="YEAR" quote=""/>
-																																																																																													        <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
-																																																																																																	    </group>
-																																																																																																			  
-																																																																																																			    <group label="Miscellaneous" color="rgb(200,200,255)">
-																																																																																																						        <type label="ENUM" length="1" sql="ENUM" quote=""/>
-																																																																																																										        <type label="SET" length="1" sql="SET" quote=""/>
-																																																																																																														        <type label="Bit" length="0" sql="bit" quote=""/>
-																																																																																																																		    </group>
-																																																																																																																				</datatypes><table x="25" y="21" name="User">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="login" null="1" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(150)</datatype>
-																																																																																																																					<default>NULL</default><comment>login</comment>
-																																																																																																																				</row>
-																																																																																																																				<row name="nickname" null="1" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(150)</datatype>
-																																																																																																																					<default>NULL</default><comment>nickname</comment>
-																																																																																																																				</row>
-																																																																																																																				<row name="email" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(150)</datatype>
-																																																																																																																					<default>'NULL'</default><comment>@email</comment>
-																																																																																																																				</row>
-																																																																																																																				<row name="sha" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(254)</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="password" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(254)</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="state" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="initdate" null="0" autoincrement="0">
-																																																																																																																					<datatype>DATE</datatype>
-																																																																																																																				</row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																			<table x="472" y="22" name="DataDictionary">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="name" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(100)</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="description" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(254)</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="parent" null="1" autoincrement="0">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="exp" null="1" autoincrement="0">
-																																																																																																																					<datatype>BLOB</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																				<comment>Common table has a lof of information likea Role Types. It's like a workplace.</comment>
-																																																																																																																			</table>
-																																																																																																																			<table x="311" y="21" name="DescList">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="name" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(100)</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="description" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="state" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="format" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="datadictionaryid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="DataDictionary" row="id" />
-																																																																																																																					<comment>Only tables data</comment>
-																																																																																																																				</row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																			<table x="152" y="22" name="UserData">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="userid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="User" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="desclistid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="DescList" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="value" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR</datatype>
-																																																																																																																				</row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																			<table x="321" y="280" name="Task">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="desclistid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="name" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(150)</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="projectnum" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="tasknum" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="projectid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="parentid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="isproject" null="0" autoincrement="0">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="istask" null="0" autoincrement="0">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="initdate" null="1" autoincrement="0">
-																																																																																																																					<datatype>DATE</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="statedate" null="0" autoincrement="0">
-																																																																																																																					<datatype>DATE</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="state" null="1" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																				<comment>Projects, sprints and tasks</comment>
-																																																																																																																			</table>
-																																																																																																																			<table x="471" y="282" name="TaskData">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="taskid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="Task" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="desclistid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="DescList" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="value" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR</datatype>
-																																																																																																																				</row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																			<table x="26" y="282" name="Message">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="taskid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<default>NULL</default><relation table="Task" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="userid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="User" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="theme" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR</datatype>
-																																																																																																																					<default>'NULL'</default></row>
-																																																																																																																				<row name="body" null="0" autoincrement="0">
-																																																																																																																					<datatype>BLOB</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="parent" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="initdate" null="0" autoincrement="0">
-																																																																																																																					<datatype>DATE</datatype>
-																																																																																																																				</row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																			<table x="25" y="510" name="UserTaskData">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="userid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="User" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="taskid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="Task" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="desclistid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="DescList" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="value" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(254)</datatype>
-																																																																																																																					<default>'NULL'</default></row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																			<table x="619" y="401" name="TagList">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="name" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(150)</datatype>
-																																																																																																																					<default>'NULL'</default></row>
-																																																																																																																				<row name="description" null="1" autoincrement="0">
-																																																																																																																					<datatype>TINYINT(254)</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="state" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="initdate" null="0" autoincrement="0">
-																																																																																																																					<datatype>DATE</datatype>
-																																																																																																																					<default>'NULL'</default></row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																			<table x="470" y="424" name="TaskTags">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="taglistid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="TagList" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="taskid" null="0" autoincrement="0">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<relation table="Task" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="state" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																			<table x="696" y="18" name="Notification">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="theme" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="body" null="0" autoincrement="0">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="email" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(150)</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="state" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="initdate" null="0" autoincrement="0">
-																																																																																																																					<datatype>DATE</datatype>
-																																																																																																																					<default>'NULL'</default></row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																				<comment>Table for receiving email</comment>
-																																																																																																																			</table>
-																																																																																																																			<table x="622" y="590" name="TestExpr">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="name" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(150)</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="description" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="body" null="0" autoincrement="0">
-																																																																																																																					<datatype>BLOB</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="state" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="initdate" null="0" autoincrement="0">
-																																																																																																																					<datatype>DATE</datatype>
-																																																																																																																					<default>'NULL'</default></row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																			<table x="279" y="614" name="TaskResult">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="name" null="0" autoincrement="0">
-																																																																																																																					<datatype>VARCHAR(150)</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="data" null="0" autoincrement="0">
-																																																																																																																					<datatype>BLOB</datatype>
-																																																																																																																				</row>
-																																																																																																																				<row name="taskid" null="1" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<default>NULL</default><relation table="Task" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="userid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="User" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<row name="initdate" null="1" autoincrement="0">
-																																																																																																																					<datatype>DATE</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<key type="PRIMARY" name="">
-																																																																																																																					<part>id</part>
-																																																																																																																				</key>
-																																																																																																																				<comment>Procedure and function store as a result of task</comment>
-																																																																																																																			</table>
-																																																																																																																			<table x="471" y="590" name="TestCase">
-																																																																																																																				<row name="id" null="1" autoincrement="1">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="parent" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="num" null="1" autoincrement="0">
-																																																																																																																					<datatype>TINYINT</datatype>
-																																																																																																																					<default>NULL</default></row>
-																																																																																																																				<row name="testexprid" null="0" autoincrement="0">
-																																																																																																																					<datatype>INTEGER</datatype>
-																																																																																																																					<relation table="TestExpr" row="id" />
-																																																																																																																				</row>
-																																																																																																																				<key type="PRIMARY" name="">
-																										<part>id</part>
-																																																																																																																				</key>
-																																																																																																																			</table>
-																																																																																																																		</sql>
+<group label="Date &amp; Time" color="rgb(200,255,200)">
+<type label="Date" length="0" sql="DATE" quote="'"/>
+<type label="Time" length="0" sql="TIME" quote="'"/>
+<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+<type label="Year" length="0" sql="YEAR" quote=""/>
+<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+</group>
+
+<group label="Miscellaneous" color="rgb(200,200,255)">
+<type label="ENUM" length="1" sql="ENUM" quote=""/>
+<type label="SET" length="1" sql="SET" quote=""/>
+<type label="Bit" length="0" sql="bit" quote=""/>
+</group>
+</datatypes><table x="22" y="21" name="User">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TypeList" row="id" />
+</row>
+<row name="login" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default><comment>login</comment>
+</row>
+<row name="nickname" null="1" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>NULL</default><comment>nickname</comment>
+</row>
+<row name="email" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>'NULL'</default><comment>@email</comment>
+</row>
+<row name="sha" null="0" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+</row>
+<row name="password" null="0" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="initdate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="480" y="183" name="TypeList">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="description" null="0" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+</row>
+<row name="parent" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="exp" null="1" autoincrement="0">
+<datatype>BLOB</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Common table has a lof of information likea Role Types. It's like a workplace.</comment>
+</table>
+<table x="481" y="22" name="DescList">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="description" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="format" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="228" y="23" name="UserData">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="userid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="User" row="id" />
+</row>
+<row name="desclistid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="DescList" row="id" />
+</row>
+<row name="value" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="new field" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>DescList values for user</comment>
+</table>
+<table x="479" y="372" name="Task">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TypeList" row="id" />
+<comment>Task type</comment>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+</row>
+<row name="projectnum" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="tasknum" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="projectid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="parentid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="istask" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="initdate" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="statedate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<row name="state" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="taskpath" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Projects, sprints and tasks</comment>
+</table>
+<table x="693" y="372" name="TaskData">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="taskid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Task" row="id" />
+</row>
+<row name="desclistid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="DescList" row="id" />
+</row>
+<row name="value" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="23" y="333" name="Message">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="taskid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Task" row="id" />
+</row>
+<row name="userid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="User" row="id" />
+<comment>From user</comment>
+</row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TypeList" row="id" />
+<comment>It's a link for UserTaskType. To Role</comment>
+</row>
+<row name="theme" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default></row>
+<row name="body" null="0" autoincrement="0">
+<datatype>VARCHAR(2000)</datatype>
+</row>
+<row name="parent" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="initdate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Conversation between users about task</comment>
+</table>
+<table x="23" y="584" name="UserTaskData">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="userid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="User" row="id" />
+</row>
+<row name="taskid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Task" row="id" />
+</row>
+<row name="desclistid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="DescList" row="id" />
+</row>
+<row name="value" null="0" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Properties for user. Must depends on task.</comment>
+</table>
+<table x="845" y="512" name="TagList">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+<default>'NULL'</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+<default>NULL</default></row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="initdate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="692" y="513" name="TaskTags">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="taglistid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TagList" row="id" />
+</row>
+<row name="taskid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Task" row="id" />
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="742" y="21" name="Notification">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="theme" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+</row>
+<row name="body" null="0" autoincrement="0">
+<datatype>VARCHAR(2000)</datatype>
+</row>
+<row name="email" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="initdate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Table for receiving email. It mustn't depends on other tables</comment>
+</table>
+<table x="849" y="721" name="TestExpr">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+</row>
+<row name="description" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="body" null="0" autoincrement="0">
+<datatype>BLOB</datatype>
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="initdate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="479" y="721" name="TaskSrc">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+</row>
+<row name="data" null="0" autoincrement="0">
+<datatype>BLOB</datatype>
+</row>
+<row name="taskid" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Task" row="id" />
+</row>
+<row name="userid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="User" row="id" />
+</row>
+<row name="initdate" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Procedure and function store as a result of task</comment>
+</table>
+<table x="698" y="722" name="TestCase">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="parent" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="num" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="testexprid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TestExpr" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1201" y="510" name="Ticket">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TypeList" row="id" />
+</row>
+<row name="number" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default></row>
+<row name="sender" null="0" autoincrement="0">
+<datatype>VARCHAR(250)</datatype>
+<default>'NULL'</default></row>
+<row name="theme" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+</row>
+<row name="body" null="0" autoincrement="0">
+<datatype>VARCHAR(2000)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>For bug trecking</comment>
+</table>
+<table x="226" y="181" name="UserType">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="userid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="User" row="id" />
+</row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TypeList" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>TypeList values for users</comment>
+</table>
+<table x="844" y="372" name="TaskType">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="taskid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Task" row="id" />
+</row>
+<row name="typeid" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="TypeList" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="24" y="762" name="UserTaskType">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="userid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="User" row="id" />
+</row>
+<row name="taskid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Task" row="id" />
+</row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TypeList" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>In this table we using TypeList can realise somethink like team for task</comment>
+</table>
+<table x="1045" y="511" name="Ticketags">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="taglistid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TagList" row="id" />
+</row>
+<row name="ticketid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Ticket" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1388" y="509" name="TicketAttachment">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="ticketid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Ticket" row="id" />
+</row>
+<row name="filename" null="0" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+</row>
+<row name="path" null="0" autoincrement="0">
+<datatype>VARCHAR(200)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1203" y="20" name="FormTemplate">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="path" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="description" null="0" autoincrement="0">
+<datatype>VARCHAR(2000)</datatype>
+<default>'NULL'</default></row>
+<row name="initdate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<row name="changedate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="985" y="21" name="FormData">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="formid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="FormTemplate" row="id" />
+</row>
+<row name="desclistid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="DescList" row="id" />
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="hint" null="1" autoincrement="0">
+<datatype>VARCHAR(200)</datatype>
+<default>NULL</default></row>
+<row name="templatetag" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="989" y="210" name="FormType">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="formid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="FormTemplate" row="id" />
+</row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TypeList" row="id" />
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="hint" null="1" autoincrement="0">
+<datatype>VARCHAR(200)</datatype>
+<default>NULL</default></row>
+<row name="templatetag" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1427" y="21" name="FormDoc">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="formid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="FormTemplate" row="id" />
+</row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TypeList" row="id" />
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>
