@@ -78,7 +78,7 @@
 <datatype>INTEGER</datatype>
 </row>
 <row name="name" null="0" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
+<datatype>VARCHAR(150)</datatype>
 </row>
 <row name="description" null="0" autoincrement="0">
 <datatype>VARCHAR(254)</datatype>
@@ -99,10 +99,10 @@
 <datatype>INTEGER</datatype>
 </row>
 <row name="name" null="0" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
+<datatype>VARCHAR(150)</datatype>
 </row>
 <row name="description" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(254)</datatype>
 </row>
 <row name="state" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -127,7 +127,7 @@
 <relation table="DescList" row="id" />
 </row>
 <row name="value" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(254)</datatype>
 </row>
 <row name="new field" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -150,7 +150,7 @@
 <datatype>VARCHAR(150)</datatype>
 </row>
 <row name="projectnum" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(150)</datatype>
 </row>
 <row name="tasknum" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -174,7 +174,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="taskpath" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(254)</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -194,7 +194,7 @@
 <relation table="DescList" row="id" />
 </row>
 <row name="value" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(254)</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -219,7 +219,7 @@
 <comment>It's a link for UserTaskType. To Role</comment>
 </row>
 <row name="theme" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(150)</datatype>
 <default>'NULL'</default></row>
 <row name="body" null="0" autoincrement="0">
 <datatype>VARCHAR(2000)</datatype>
@@ -298,7 +298,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="742" y="21" name="Notification">
+<table x="1416" y="292" name="Notification">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -407,7 +407,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="number" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(150)</datatype>
 <default>'NULL'</default></row>
 <row name="sender" null="0" autoincrement="0">
 <datatype>VARCHAR(250)</datatype>
@@ -446,7 +446,7 @@
 </key>
 <comment>TypeList values for users</comment>
 </table>
-<table x="844" y="372" name="TaskType">
+<table x="867" y="373" name="TaskType">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -522,10 +522,10 @@
 <datatype>INTEGER</datatype>
 </row>
 <row name="path" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(254)</datatype>
 </row>
 <row name="name" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(150)</datatype>
 </row>
 <row name="description" null="0" autoincrement="0">
 <datatype>VARCHAR(2000)</datatype>
@@ -556,13 +556,13 @@
 <relation table="DescList" row="id" />
 </row>
 <row name="name" null="0" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
+<datatype>VARCHAR(150)</datatype>
 </row>
 <row name="hint" null="1" autoincrement="0">
-<datatype>VARCHAR(200)</datatype>
+<datatype>VARCHAR(254)</datatype>
 <default>NULL</default></row>
 <row name="templatetag" null="0" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
+<datatype>VARCHAR(150)</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -581,13 +581,13 @@
 <relation table="TypeList" row="id" />
 </row>
 <row name="name" null="0" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
+<datatype>VARCHAR(150)</datatype>
 </row>
 <row name="hint" null="1" autoincrement="0">
-<datatype>VARCHAR(200)</datatype>
+<datatype>VARCHAR(254)</datatype>
 <default>NULL</default></row>
 <row name="templatetag" null="0" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
+<datatype>VARCHAR(254)</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
