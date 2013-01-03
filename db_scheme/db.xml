@@ -34,7 +34,7 @@
 
 <group label="Miscellaneous" color="rgb(200,200,255)">
 <type label="ENUM" length="1" sql="ENUM" quote=""/>
-<type label="SET" length="1" sql="SET" quote=""/>
+<type label="SET" length="1" sql="SET" quote=""/>NULL
 <type label="Bit" length="0" sql="bit" quote=""/>
 </group>
 </datatypes><table x="22" y="21" name="User">
@@ -389,7 +389,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1201" y="510" name="Ticket">
+<table x="1208" y="510" name="Ticket">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -397,6 +397,12 @@
 <datatype>INTEGER</datatype>
 <relation table="TypeList" row="id" />
 </row>
+<row name="taskid" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="parent" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <row name="number" null="0" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
@@ -408,6 +414,12 @@
 </row>
 <row name="body" null="0" autoincrement="0">
 <datatype>VARCHAR(2000)</datatype>
+</row>
+<row name="changedate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -468,7 +480,7 @@
 </key>
 <comment>In this table we using TypeList can realise somethink like team for task</comment>
 </table>
-<table x="1045" y="511" name="Ticketags">
+<table x="1045" y="511" name="TicketTags">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -484,7 +496,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1388" y="509" name="TicketAttachment">
+<table x="1418" y="512" name="TicketAttachment">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -589,6 +601,76 @@
 <row name="typeid" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <relation table="TypeList" row="id" />
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1208" y="802" name="Answer">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="creator" null="0" autoincrement="0">
+<datatype>VARCHAR(250)</datatype>
+</row>
+<row name="theme" null="0" autoincrement="0">
+<datatype>VARCHAR(150)</datatype>
+</row>
+<row name="body" null="0" autoincrement="0">
+<datatype>VARCHAR(2000)</datatype>
+</row>
+<row name="changedate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1417" y="800" name="AnswerAttachment">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="answerid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Answer" row="id" />
+</row>
+<row name="filename" null="0" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+</row>
+<row name="path" null="0" autoincrement="0">
+<datatype>VARCHAR(200)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1035" y="801" name="AnswerTags">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="taglistid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TagList" row="id" />
+</row>
+<row name="ticketid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Ticket" row="id" />
+</row>
+<row name="answerid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Answer" row="id" />
+</row>
+<row name="changedate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
 </row>
 <row name="state" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
