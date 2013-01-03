@@ -34,7 +34,7 @@
 
 <group label="Miscellaneous" color="rgb(200,200,255)">
 <type label="ENUM" length="1" sql="ENUM" quote=""/>
-<type label="SET" length="1" sql="SET" quote=""/>NULL
+<type label="SET" length="1" sql="SET" quote=""/>
 <type label="Bit" length="0" sql="bit" quote=""/>
 </group>
 </datatypes><table x="22" y="21" name="User">
@@ -66,7 +66,7 @@
 <row name="state" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 </row>
-<row name="initdate" null="0" autoincrement="0">
+<row name="changedate" null="0" autoincrement="0">
 <datatype>DATE</datatype>
 </row>
 <key type="PRIMARY" name="">
@@ -167,7 +167,7 @@
 <row name="initdate" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
-<row name="statedate" null="0" autoincrement="0">
+<row name="changedate" null="0" autoincrement="0">
 <datatype>DATE</datatype>
 </row>
 <row name="state" null="1" autoincrement="0">
@@ -200,7 +200,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="23" y="333" name="Message">
+<table x="20" y="294" name="Message">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -227,7 +227,7 @@
 <row name="parent" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 </row>
-<row name="initdate" null="0" autoincrement="0">
+<row name="changedate" null="0" autoincrement="0">
 <datatype>DATE</datatype>
 </row>
 <key type="PRIMARY" name="">
@@ -235,7 +235,7 @@
 </key>
 <comment>Conversation between users about task</comment>
 </table>
-<table x="23" y="584" name="UserTaskData">
+<table x="21" y="540" name="UserTaskData">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -259,7 +259,7 @@
 </key>
 <comment>Properties for user. Must depends on task.</comment>
 </table>
-<table x="845" y="512" name="TagList">
+<table x="845" y="507" name="TagList">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -272,14 +272,14 @@
 <row name="state" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 </row>
-<row name="initdate" null="0" autoincrement="0">
+<row name="changedate" null="0" autoincrement="0">
 <datatype>DATE</datatype>
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="692" y="513" name="TaskTags">
+<table x="694" y="507" name="TaskTags">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -314,7 +314,7 @@
 <row name="state" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 </row>
-<row name="initdate" null="0" autoincrement="0">
+<row name="changedate" null="0" autoincrement="0">
 <datatype>DATE</datatype>
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
@@ -322,7 +322,7 @@
 </key>
 <comment>Table for receiving email. It mustn't depends on other tables</comment>
 </table>
-<table x="849" y="721" name="TestExpr">
+<table x="844" y="803" name="TestExpr">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -338,14 +338,14 @@
 <row name="state" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 </row>
-<row name="initdate" null="0" autoincrement="0">
+<row name="changedate" null="0" autoincrement="0">
 <datatype>DATE</datatype>
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="479" y="721" name="TaskSrc">
+<table x="481" y="728" name="TaskSrc">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -363,15 +363,18 @@
 <datatype>INTEGER</datatype>
 <relation table="User" row="id" />
 </row>
-<row name="initdate" null="1" autoincrement="0">
+<row name="changedate" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 <comment>Procedure and function store as a result of task</comment>
 </table>
-<table x="698" y="722" name="TestCase">
+<table x="693" y="803" name="TestCase">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -389,7 +392,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1208" y="510" name="Ticket">
+<table x="1207" y="508" name="Ticket">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -459,7 +462,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="24" y="762" name="UserTaskType">
+<table x="22" y="729" name="UserTaskType">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -480,7 +483,7 @@
 </key>
 <comment>In this table we using TypeList can realise somethink like team for task</comment>
 </table>
-<table x="1045" y="511" name="TicketTags">
+<table x="1045" y="507" name="TicketTags">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -496,7 +499,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1418" y="512" name="TicketAttachment">
+<table x="1419" y="508" name="TicketAttachment">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -508,7 +511,7 @@
 <datatype>VARCHAR(254)</datatype>
 </row>
 <row name="path" null="0" autoincrement="0">
-<datatype>VARCHAR(200)</datatype>
+<datatype>VARCHAR(254)</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -647,7 +650,7 @@
 <datatype>VARCHAR(254)</datatype>
 </row>
 <row name="path" null="0" autoincrement="0">
-<datatype>VARCHAR(200)</datatype>
+<datatype>VARCHAR(254)</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -668,6 +671,92 @@
 <row name="answerid" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <relation table="Answer" row="id" />
+</row>
+<row name="changedate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<row name="state" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="245" y="729" name="TaskAttachment">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="taskid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Task" row="id" />
+</row>
+<row name="filename" null="0" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+</row>
+<row name="path" null="0" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Additionals files for Task</comment>
+</table>
+<table x="692" y="645" name="TestTask">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="taskid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Task" row="id" />
+</row>
+<row name="testcaseid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="TestCase" row="id" />
+</row>
+<row name="changedate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<row name="status" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="22" y="886" name="Wiki">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="typeid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(254)</datatype>
+</row>
+<row name="wikipath" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="changedate" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<row name="status" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="245" y="884" name="WikiDepends">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="wikiid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Wiki" row="id" />
+</row>
+<row name="taskid" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Task" row="id" />
 </row>
 <row name="changedate" null="0" autoincrement="0">
 <datatype>DATE</datatype>
