@@ -410,7 +410,7 @@
 <datatype>VARCHAR(150)</datatype>
 <default>'NULL'</default></row>
 <row name="sender" null="0" autoincrement="0">
-<datatype>VARCHAR(250)</datatype>
+<datatype>VARCHAR(254)</datatype>
 <default>'NULL'</default></row>
 <row name="theme" null="0" autoincrement="0">
 <datatype>VARCHAR(150)</datatype>
@@ -620,7 +620,7 @@
 <datatype>INTEGER</datatype>
 </row>
 <row name="creator" null="0" autoincrement="0">
-<datatype>VARCHAR(250)</datatype>
+<datatype>VARCHAR(254)</datatype>
 </row>
 <row name="theme" null="0" autoincrement="0">
 <datatype>VARCHAR(150)</datatype>
