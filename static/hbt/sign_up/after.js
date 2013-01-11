@@ -1,5 +1,4 @@
-alert( "after" );
-
+//alert( "after" );
 $( '#SignUpUser'  ).click( function(){
   $.Rest({ 
     type: $.restMethods.create, 
@@ -11,15 +10,16 @@ $( '#SignUpUser'  ).click( function(){
     }, 
     success: function( response ){
       jsonAnswer = eval( "(" + response + ")" );
-      console.log( jsonAnswer );
-      try{
-        if( jsonAnswer.error ){ 
-          console.log( "asd" );
-          alert( jsonAnswer.error );
-        };
+      //console.log( jsonAnswer );
+			//console.log( jsonAnswer.user.id );
+      //alert( jsonAnswer.user.id );
+      
+      if( typeof jsonAnswer.error != 'undefined' ){ 
+        //console.log( "asd" );
+        alert( jsonAnswer.error );
       }
-      catch(e){
-        alert( jsonAnswer.user.id );
+			else{
+        //alert( jsonAnswer.user.id );
         if( jsonAnswer.user.id && jsonAnswer.user.id > 0 ){
           $('div#sign_up_form').modal( 'hide' );
         }

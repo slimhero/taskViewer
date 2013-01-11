@@ -8,7 +8,7 @@
               <div class='control-group'>
                 <label class='control-label' for='signup_name'>Name</label>
                 <div class='controls'>
-                  <input data-binding='value: auth().name' id='signup_name' placeholder='Name' type='text' />
+                  <input id='signup_name' placeholder='Name' type='text' />
                 </div>
               </div>
               <div class='control-group'>
