@@ -9,10 +9,7 @@ $( '#SignUpUser'  ).click( function(){
       password: $("div#sign_up_form #signup_pasword").val()  
     }, 
     success: function( response ){
-			jsonAnswer = response;
-      if( typeof jsonAnswer == "string" ){
-			  jsonAnswer = eval( "(" + jsonAnswer + ")" );
-			};
+      jsonAnswer = eval( "(" + response + ")" );
       //console.log( jsonAnswer );
 			//console.log( jsonAnswer.user.id );
       //alert( jsonAnswer.user.id );
