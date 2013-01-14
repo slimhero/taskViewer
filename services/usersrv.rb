@@ -37,7 +37,7 @@ class Users < Sinatra::Base
 		if user.save
 			{ :user => user }.to_json()
 		else
-      { :error => user.errors.full_messages.join(". ") }.to_json()
+      { :error => user.errors.full_messages.join(" and ") }.to_json()
 		end
   end
 

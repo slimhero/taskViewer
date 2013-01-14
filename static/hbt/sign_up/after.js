@@ -6,10 +6,11 @@ $( '#SignUpUser'  ).click( function(){
     data: { 
       name: $("div#sign_up_form #signup_name").val(),
       email: $("div#sign_up_form #signup_email").val(),
-      password: $("div#sign_up_form #signup_pasword").val()  
+      password: $("div#sign_up_form #signup_pswd").val()  
     }, 
     success: function( response ){
 			jsonAnswer = response;
+      //alert( jsinAnswer );
       if( typeof jsonAnswer == "string" ){
 			  jsonAnswer = eval( "(" + jsonAnswer + ")" );
 			};

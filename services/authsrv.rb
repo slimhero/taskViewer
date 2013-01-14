@@ -15,8 +15,8 @@ class Auth < Sinatra::Base
   # Get user data by id
   post '/auth/user/:email/:password' do  | email, password |
     content_type :json
-    user = User.all( :email=>email )
-    user.to_json  
+    user = User.all( :email=>email, :password=>password )
+    { :user=> user }.to_json  
   end
 
   # Confirm link

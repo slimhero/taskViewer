@@ -5,7 +5,7 @@ $("#sign_in").click( function(e){
     template: "/hbt/sign_in/sign_in.js", 
     place: "$('body').append( html )", 
     js_before: "/hbt/sign_in/before.js",
-    js_after: ""
+    js_after: "/hbt/sign_in/after.js"
   });
 
   $("#sign_in_form").modal( "show" );
