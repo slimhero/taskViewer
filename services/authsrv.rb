@@ -15,8 +15,20 @@ class Auth < Sinatra::Base
   # Get user data by id
   post '/auth/user/:email/:password' do  | email, password |
     content_type :json
-    user = User.all( :email=>email, :password=>password )
-    { :user=> user }.to_json  
+    if email.nil? or password.nil?
+      if email.nil?
+        { :error=> "email must be filled" }.to_json
+      else
+        { :error=> "password must be filled" }.to_json
+      end
+    else
+      user = User.all( :email=>email, :password=>password )
+      if user.nil? 
+        { :user=> user }.to_json
+      else
+        { :error=> "User not found" }.to_json 
+      end
+    end  
   end
 
   # Confirm link
