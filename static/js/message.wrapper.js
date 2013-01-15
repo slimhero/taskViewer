@@ -1,4 +1,5 @@
-( function(){
+(function(){
+  // Set the delay of timer
   try{
     $.pnotify.defaults.delay = 1000;
     update_timer_display();
@@ -9,6 +10,7 @@
  
   $.msg = {};
 
+  // Error notification
   $.msg.error = function( description  ){
     try{
       $.pnotify({
@@ -25,7 +27,7 @@
   };
 
 
-
+  // Info notification
   $.msg.info = function( description ){
     $.pnotify({
         //title: 'Info message',
