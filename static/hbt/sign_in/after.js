@@ -14,6 +14,20 @@ $( "#SignInUser" ).click(function(){
     $.Rest({ 
       type: $.restMethods.create, 
       url: "/auth/user/" + auth_val,
+      success: function( response ){
+        jsonAnswer = response;
+        if( typeof jsonAnswer == "string" ){
+          jsonAnswer = eval( "(" + jsonAnswer + ")" );
+        };
+       
+        if( jsonAnswer.user.id && jsonAnswer.user.id > 0 ){
+          $('div#sign_in_form').modal( 'hide');
+          $.msg.success( "You've signed in" );
+        }
+        else{
+          $.msg.error( "Uncorrect data" );
+        };
+      }
     });
   };
 });
