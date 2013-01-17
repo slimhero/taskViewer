@@ -29,7 +29,9 @@ class Auth < Sinatra::Base
 
       user = User.last( :email=>email, :password=>password )
       puts user.to_json
-      if !user.nil? 
+      if !user.nil?
+        session[ :name ] = user.name
+        session[ :isAuth ] = true 
         { :user=> user }.to_json
       else
         { :error=> "User not found" }.to_json 
@@ -39,13 +41,13 @@ class Auth < Sinatra::Base
 
   # Confirm link
   get '/auth/confirm/:sha' do | sha |
-    "{result=>'it's ok #{sha}'}".to_json
+    { :result=>"it's ok #{sha}" }.to_json
     #"asd #{sha}"
   end
 
   # Confirm user
   post '/auth/confirm/:sha' do
-    json({:result=>"it's ok"})
+    { :result=>"it's ok" }.to_json
   end
 
 end

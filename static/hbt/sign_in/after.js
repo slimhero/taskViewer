@@ -20,12 +20,18 @@ $( "#SignInUser" ).click(function(){
           jsonAnswer = eval( "(" + jsonAnswer + ")" );
         };
        
-        if( jsonAnswer.user.id && jsonAnswer.user.id > 0 ){
+        if( typeof jsonAnswer.user == "object" && jsonAnswer.user.id > 0 ){
           $('div#sign_in_form').modal( 'hide');
           $.msg.success( "You've signed in" );
+          $(location).attr('href', "/dashboard" );
         }
         else{
-          $.msg.error( "Uncorrect data" );
+          if( typeof jsonAnswer.error == "string"){
+            $.msg.error( jsonAnswer.error );
+          }
+          else{
+            $.msg.error( "Uncorrect data" );
+          };
         };
       }
     });

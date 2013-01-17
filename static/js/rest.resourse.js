@@ -176,7 +176,6 @@
          var template = Handlebars.compile( template_obj.responseText  );
          var context  = "";
          if( this.data["isContext"] ){// == true ){
-           alert( '2' );
            context = eval( "(" + this.data.context + ")" );
          };
          var html = template( context );
@@ -221,25 +220,18 @@
   $.RestData = function( options ){
     var _self_ = this;
     this.data = $.RestDataSetup( options );
-    
-    // Set tamplate path
-    this.template = function( url ){
-      if( typeof url != "underfined" )
-        this.data.action.template = url;
+    //this.action = this.data.action;
+
+    this.restSuccess = function( response  ){
+      _self_.data.action = jQuery.extend( 
+          _self_.data.action, 
+           { isContext: true, context: response }  
+      ); 
+      _self_.data.action = new $.RestTemplate( _self_.data.action );
     };
 
-    // Set javascript file which must works before inserting data
-    this.js_before = function( url ){
-      if( typeof url != "underfined" )
-        this.data.action.js_before = url;
-    };
-
-    // Set javascript file which works after inserting data
-    this.js_after = function( url ){
-      if( typeof url != "underfined" )
-        this.data.action.js_after = url;
-    };
-
+    var opt = jQuery.extend( options, { success: this.restSussess }  );  
+    return new $.Rest( {url: opt.url, type: opt.type, success: this.restSuccess /*opt.success*/ } );
   };
 
   //$.RestData.prototype.global = this;
