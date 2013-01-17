@@ -26,7 +26,7 @@ $(document).ready(function(){
             url: "/api/session",
               action: {
                 template: "/hbt/user/user.js", 
-                place: "$('body').html( html )", 
+                place: "$('body .context').html( html )", 
                 js_before: "",
                 js_after: ""
             }
