@@ -12,7 +12,7 @@
     fromDate: (moment()).add( "years", -1),
     place: "body",
     aobj_name: "activity",
-    aobj_date: "data",
+    aobj_data: "data",
     aobj_count: "count",
     data: [],
     matrix: [],
@@ -47,41 +47,11 @@ $.activityCalendar = function ( options ){
     var tbl = "<table>";
     for ( var x = 0; x<7; x++ ){
       tbl = tbl + "<tr>";
-      for( var i =0; i<= this.matrix.length; i++ ){
-        if( i == 0 ){
-          var day = "";
-          switch(x){
-            case 1:
-              day = "M";
-              break;
-            case 3:
-              day = "W";
-              break;
-            case 5:
-              day = "F";
-              break;
-            default:
-              day = " ";
-          };
-          if( day.length > 0 ){
-            day = "<small>" + day + "</small>";
-            tbl = tbl + "<td class='cell_h' style='background-color: white'>" + day + "</td>";
-          }
-          else{
-            tbl = tbl + "<td class='cell_wo' style='background-color: white; padding: 5px;'>" + day + "</td>";
-          }
-        }
-        else{
-          if( typeof this.matrix[i-1][x] != "string" ){
-            tbl = tbl + "<td class='cell_h' style='background-color: white'></td>";
-          }
-          else{
-            if( x==3 || x==5 || x==1 )
-              tbl = tbl + "<td class='cell cell_h' id='" + this.matrix[i-1][x] + "'></td>";
-            else
-              tbl = tbl + "<td class='cell cell_wo' id='" + this.matrix[i-1][x] + "'></td>";
-          }
-        }
+      for( var i =0; i< this.matrix.length; i++ ){
+        if( typeof this.matrix[i][x] != "string" )
+          tbl = tbl + "<td id=''></td>";
+        else
+          tbl = tbl + "<td id='" + this.matrix[i][x] + "'></td>";
       };
       tbl = tbl + "</tr>";
     };
@@ -91,7 +61,7 @@ $.activityCalendar = function ( options ){
   
   AC.getColor = function( val ){
     for( var i = 0; i < this.forexp.length; i++ ){
-      var str = "( " + val.toString() + " " + this.forexp[i].cond + " " + this.forexp[i].value + ")" ;
+      var str = "( " + val.toString() + " " + this.forexp[i].cond + " " +  this.forexp[i].cond + " " + this.forexp[i].value + ")" ;
       var result = eval( str );
       if( result == true )
         return this.forexp[i].color;
@@ -101,39 +71,51 @@ $.activityCalendar = function ( options ){
   };
   
   AC.setData = function( array_data ){
+    alert( array_data );
     var response = array_data;
     var datas;
     if( typeof response == "string" )
-      response = eval( "(" + response + ")" );
+      response = new Object( response );
+      
+    alert( response.activity );
       
     var arrayName = this.aobj_name;
+    alert( "z=" + arrayName );
+    alert( response[arrayName] );
 
     if( !$.isArray( response )){
       if( typeof response == "object" ){
-        //datas = response[ arrayName ];
-        if( $.isArray(  response[ arrayName ] )){
-          //alert( 'Inside' );
-          datas = response[ arrayName ];
+        //var arrayName = _self_.aobj_name;
+        alert( arrayName );
+        alert( 'обьект' );
+        alert( this.aobj_name );
+        alert( 'дата' );
+        alert( response[ arrayName ]);
+        
+        datas = response[ arrayName ];
+        if( $.isArray(  response[ this.aobj_name ] )){
+          alert( 'Inside' );
+          alert( response[ arrayName ] );
+          response = response[ arrayName ];
         }
         else
-          datas = [];
+          response = [];
       };
     };
-    //alert( "rjytw" );
-    //alert( datas  );
-    for( var i = 0; i < datas.length; i++ ){
-      var obj = datas[i];
+    alert( "rjytw" );
+    alert( array_data[ this.aobj_name ]  );
+    for( var i = 0; i < array_data.length; i++ ){
+      var obj = array_data[i];
       var d = obj[ this.aobj_date];
       var val = obj[ this.aobj_count ];
       
-      $(("#"+d)).attr( "style", "background-color:" + this.getColor( val ) );
-      $(('#'+d)).val = "z"; 
+      $(("#"+d)).attr( "style", "background-color:" + this.getColor( val ) ); 
     }
   };
   
   AC.run = function(){
     //_self_ = this;
-    //alert( '1' );
+    alert( '1' );
     
     if( $( this.place ).attr( "data-url" ) ){
       var response = $.ajax({ 

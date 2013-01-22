@@ -14,6 +14,7 @@ require 'dm-migrations'
 require './services/usersrv'
 require './services/authsrv'
 require './services/sessionsrv'
+require './services/activitysrv'
 
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/#{Sinatra::Application.environment}.sqlite")
 
@@ -22,6 +23,7 @@ class TaskViewer < Sinatra::Base
   use Users
   use Auth
   use Sessions
+  use Activity
   set :port => "1111"
   set :public_folder, 'static'
   set :sessions, true
