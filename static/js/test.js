@@ -127,7 +127,10 @@ $.activityCalendar = function ( options ){
       var val = obj[ this.aobj_count ];
       
       $(("#"+d)).attr( "style", "background-color:" + this.getColor( val ) );
-      $(('#'+d)).val = "z"; 
+      //$(("#"+d)).html( "<a href='#' title='Contributin count: " + val + "' rel='tooltip'></a>" )
+      $(("#"+d)).attr( "title", "Activity count: " + val );
+      $(("#"+d)).attr( "rel", "tooltip" );
+      //$(('#'+d)).val = "z"; 
     }
   };
   

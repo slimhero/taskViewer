@@ -27,8 +27,8 @@ $(document).ready(function(){
               action: {
                 template: "/hbt/user/user.js", 
                 place: "$('body .context').html( html )", 
-                js_before: "",
-                js_after: ""
+                js_before: "/hbt/user/before.js",
+                js_after: "/hbt/user/after.js"
             }
         });
         break;
