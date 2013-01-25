@@ -57,9 +57,13 @@ hr.soften {
   border: 0;
 }
 
-.js-calendar-graph > table td{
-  box-sizing: border-box;
+.js-calendar-graph table{
+  display: block;
+}
 
+.js-calendar-graph table td{
+  box-sizing: border-box;
+  
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   line-height: 10px;
