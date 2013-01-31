@@ -2,21 +2,21 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'hbs!widgets/signin/template',
+    'hbs!widgets/signup/template',
     'message'
     //'bootstrap', 
     //'tooltip', 
     //'widgets/app/template'
   ],
   function( $, _, Backbone, Template ){
-    var SignInView = Backbone.View.extend({
-      //el: '.templates div#loginin',
+    var SignUpView = Backbone.View.extend({
       el: '.templates',
       /*
       tagName: 'div',
       className: 'modal hide fade',
-      id: 'sign_in_form',
+      id: 'sign_up_form',
       */
+      
       initialize: function(){
         this.render();
       },
@@ -25,24 +25,24 @@ define([
       render: function(){
         var template = Template({});
         this.$el.append( template );  
-        $.msg.success( "Sign in template has loaded" );
+        
+        $.msg.success( "Sign up template has loaded" );
+        
         return this;
       },
 
       // Events for template
       events: {
-        "click #SignInUser": "signIn" 
+        "click #SignUpUser": "signUp" 
       },
 
       // Events action
-      signIn: function(){
-        $.msg.success( "Signed in" );
-        $('div#sign_in_form').modal( 'hide' );
-        //$('div#sign_in_form').remove();
-        //window.alert("asd");
+      signUp: function(){
+        $.msg.success( "Signed up" );
+        $('div#sign_up_form').modal( 'hide' );
       }
     });
 
-    return SignInView;
+    return SignUpView;
   }
 );

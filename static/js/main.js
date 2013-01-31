@@ -1,7 +1,7 @@
 // Require.js allows us to configure shortcut alias
 require.config({
   baseUrl: '/js',
-  urlArgs: "addingsfornotcache=" +  (new Date()).getTime(),
+  //urlArgs: "addingsfornotcache=" +  (new Date()).getTime(),
 	// The shim config allows us to configure dependencies for
 	// scripts that do not call define() to register a module
   shim: {
@@ -33,6 +33,12 @@ require.config({
     },
     handlebars:{
       exports: 'Handlebars'
+    },
+    jqueryPnotify:{
+      deps: ['jquery', 'bootstrap']
+    },
+    message:{
+      deps: ['jqueryPnotify']
     }
 	},
 
@@ -75,7 +81,9 @@ require.config({
     json2: 'lib/json2',
     
     bootstrap: 'lib/bootstrap',
-    tooltip: 'lib/bootstrap-tooltip'
+    tooltip: 'lib/bootstrap-tooltip',
+    jqueryPnotify: 'lib/jquery.pnotify',
+    message: 'assets/message'
 	}
 });
 
