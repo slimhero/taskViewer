@@ -26,7 +26,7 @@ class TaskViewer < Sinatra::Base
   use Activity
   set :port => "1111"
   set :public_folder, 'static'
-  set :sessions, true
+  #set :sessions, true
 
   
   #DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/#{Sinatra::Application.environment}.sqlite")
