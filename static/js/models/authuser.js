@@ -1,27 +1,15 @@
 define([
-    //'jquery',
-    'underscore',
-    'backbone',
-    //'message'
+    'backbone'
   ],
-  function( /*$,*/ _, Backbone ){
-    var AuthModel = Backbone.Model.extend({
-      errors: [],
-      idAttribute: 'id',
-      // Defaults properties
-      defaults: {
-         name: "",
-         password: "",
-         email: "" 
-      },
-
+  function( Backbone ){
+    window.AuthModel = Backbone.Model.extend({
       urlRoot: '/auth/user',
+
       url: function() {
         var email = this.get('email');
         var pass =   this.get('password');
         return this.urlRoot + '/' + email + '/' + pass;
       },
-
       
       // Validation
       validate: function(attrs){
@@ -35,12 +23,7 @@ define([
           return this.errors;
       }
     });
-
-    var AuthUserCollection = Backbone.Collection.extend({
-      model: AuthModel//,
-      //url: "/auth/user/" + AuthModel.password + "/" + AuthModel.email
-    });
-
-    return AuthModel;
+    
+    return window.AuthModel;
   }
 );

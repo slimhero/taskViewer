@@ -1,40 +1,17 @@
 define([
-    'jquery',
-    'underscore',
     'backbone',
     'hbs!widgets/signin/template',
     'models/authuser',
     'message'
-    //'bootstrap', 
-    //'tooltip', 
-    //'widgets/app/template'
   ],
-  function( $, _, Backbone, Template, AuthUser, AuthUserCollect ){
-/*    var AuthUserCollection = Backbone.Collection.extend({
-      model: AuthUser,
-      //url: '/auth/user/'
-      url: function() {
-        var email = this.models[0].get('email');
-        var pass =   this.models[0].get('password');
-        return '/auth/user/' + email + '/' + pass;
-      }
-    });
-*/
+  function( Backbone, Template, AuthUser ){
     var SignInView = Backbone.View.extend({
-      //el: '.templates div#loginin',
       el: '.templates',
-      /*
-      tagName: 'div',
-      className: 'modal hide fade',
-      id: 'sign_in_form',
-      */
       initialize: function(){
-        this.render();
         this.model = new AuthUser();
-        /*this.model.bind('error', function( model, error){
-          $.msg.error( error );
-        });
-        */
+        // Check a model
+        this.listenTo( this.model, 'sync', this.checkResult );
+        this.render();
       },
 
       // Render document from script
@@ -52,40 +29,41 @@ define([
 
       // Events action
       signIn: function(){
-        this.model.set({ "password": $('div#sign_in_form input#auth_pswd').val() }); 
-        this.model.set({ "email": $('div#sign_in_form input#auth_email').val() }); 
+
+        var data = {
+          password: $('div#sign_in_form input#auth_pswd').val() ,
+          email: $('div#sign_in_form input#auth_email').val()
+        };
+
+        this.model.set( data );
         if( !this.model.isValid() ){
           $.each( this.model.errors, function(id,value){
               $.msg.error( value );
           });
         }
         else{
-          //AuthUserCollection({ url: '/auth/user/'})
-          //collect = new AuthUserCollection( [ this.model ] );
-/*
-          this.model.fetch({
-            success: function( model){ 
-              alert( model.get('id') ); 
-            },
-            error: function(){
-              alert( 'error' );
-            }
-          });
-*/
-/*
-          this.model.save({
-            success: function(){
-              alert( 'cool');
-            },
-            error: function(){
-              alert( 'bad' );
-            }
-          });
-*/
-          this.model.get();
-          //$.msg.success( "Signed in" );
-          $('div#sign_in_form').modal( 'hide' );
+          this.model.save();
         };
+      },
+
+      // Checking result
+      checkResult: function( model ){
+        if( !model.get("error") )
+          this.SignInSuccess();
+        else
+          this.SignInError( model.get( 'error' ) );
+      },
+
+      // If result is well
+      SignInSuccess: function(){
+        $.msg.success( "Signed in" );
+        $('div#sign_in_form').modal( 'hide' );
+      },
+
+      // If we have error
+      SignInError: function( errorText ){
+        $.msg.error( errorText );
+        this.model.unset( 'error' );
       }
     });
 

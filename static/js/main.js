@@ -1,6 +1,6 @@
 // Require.js allows us to configure shortcut alias
 require.config({
-  baseUrl: '/js',
+  baseUrl: '/js/',
   //urlArgs: "addingsfornotcache=" +  (new Date()).getTime(),
 	// The shim config allows us to configure dependencies for
 	// scripts that do not call define() to register a module
@@ -93,6 +93,8 @@ require([
   ],
   function( AppView ){
     // Initialize routing and start Backbone.history()
+    //var underscore = _.noConflict();
+    //Backbone.noConflict();
     Backbone.history.start();
     // Start application
     new AppView();
