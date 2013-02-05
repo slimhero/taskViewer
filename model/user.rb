@@ -5,7 +5,14 @@ class User
   include DataMapper::Resource
 
   property :id,        Serial
-  property :name,      String,  :length => 150, :required => true, :key => true
+  property :name,      String,  
+    :length => 150, 
+    :required => true, 
+    :key => true
+    :messages => {
+      :presence  => "Name must be filled",
+      :is_unique => "Name is not unique"
+    }
   property :email,     String,  
 		:length => 150, 
 		:required => true, 

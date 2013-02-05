@@ -37,9 +37,7 @@ define([
 
         this.model.set( data );
         if( !this.model.isValid() ){
-          $.each( this.model.errors, function(id,value){
-              $.msg.error( value );
-          });
+          $.msg.error( this.model.validationError );
         }
         else{
           this.model.save();
@@ -49,19 +47,22 @@ define([
       // Checking result
       checkResult: function( model ){
         if( !model.get("error") )
-          this.SignInSuccess();
+          this.OnSuccess();
         else
-          this.SignInError( model.get( 'error' ) );
+          this.OnError( model.get( 'error' ) );
       },
 
       // If result is well
-      SignInSuccess: function(){
+      // Show tooltip and hide window
+      OnSuccess: function(){
         $.msg.success( "Signed in" );
         $('div#sign_in_form').modal( 'hide' );
       },
 
       // If we have error
-      SignInError: function( errorText ){
+      // Show tooltip with error
+      // and delete error field from model
+      OnError: function( errorText ){
         $.msg.error( errorText );
         this.model.unset( 'error' );
       }

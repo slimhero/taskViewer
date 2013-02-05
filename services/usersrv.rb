@@ -31,11 +31,17 @@ class Users < Sinatra::Base
   end
 
   # Creating new
-  post '/api/user/new' do
+  post '/api/user' do
     content_type :json
-    user = User.new :name=>params[:name], :password=>params[:password], :email=>params[:email]
+    
+    param = request.body.read;
+    #user = User.new :name=>params[:name], :password=>params[:password], :email=>params[:email]
+    param = JSON.parse( param );
+    param["email"] = param["email"].downcase!
+
+    user = User.new :name=>param["name"], :password=>param["password"], :email=>param["email"]
 		if user.save
-			{ :user => user }.to_json()
+			user.to_json()
 		else
       { :error => user.errors.full_messages.join(" and ") }.to_json()
 		end
