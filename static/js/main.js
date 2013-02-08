@@ -40,6 +40,12 @@ require.config({
     message:{
       deps: ['jqueryPnotify']
     }
+    ,
+    kendo: {
+      deps: ['jquery']
+      //,
+      //exports: 'window.kendo'
+    }
 	},
 
 
@@ -84,19 +90,24 @@ require.config({
     tooltip: 'lib/bootstrap-tooltip',
     jqueryPnotify: 'lib/jquery.pnotify',
     message: 'assets/message'
-	}
+    ,
+    kendo: 'lib/kendoui/kendo.web'
+	  
+  }
 });
 
 require([
-    'widgets/app/view',
-    'routers/router'
+    //'widgets/app/view',
+    'router'
   ],
-  function( AppView ){
+  function( /*AppView,*/ FlowRouter ){
     // Initialize routing and start Backbone.history()
     //var underscore = _.noConflict();
     //Backbone.noConflict();
-    Backbone.history.start();
+    new FlowRouter();
+    //Backbone.history.start();
+    Backbone.history.start({pushState: true});
     // Start application
-    new AppView();
+    //new AppView();
   }
 );

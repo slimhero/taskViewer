@@ -47,22 +47,26 @@ define([
       // Checking result
       checkResult: function( model ){
         if( !model.get("error") )
-          this.OnSuccess();
+          this.onSuccess();
         else
-          this.OnError( model.get( 'error' ) );
+          this.onError( model.get( 'error' ) );
       },
 
       // If result is well
       // Show tooltip and hide window
-      OnSuccess: function(){
+      onSuccess: function(){
         $.msg.success( "Signed in" );
         $('div#sign_in_form').modal( 'hide' );
+        window.session = new Object({ name: this.model.get("name"), id: this.model.get("id") });
+        this.model.clear();
+        Backbone.history.navigate('dashboard', true); 
+        //controller.navigate("dashboard", true); // переход на страницу success
       },
 
       // If we have error
       // Show tooltip with error
       // and delete error field from model
-      OnError: function( errorText ){
+      onError: function( errorText ){
         $.msg.error( errorText );
         this.model.unset( 'error' );
       }

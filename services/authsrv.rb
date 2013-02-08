@@ -23,7 +23,7 @@ class Auth < Sinatra::Base
       end
     else
 
-      user = User.last( :email=>email, :password=>password )
+      user = User.last( :email=>email.downcase!, :password=>password )
       puts user.to_json
       if !user.nil?
         session[ :name ] = user.name

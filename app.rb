@@ -17,6 +17,8 @@ require './services/sessionsrv'
 require './services/activitysrv'
 
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/#{Sinatra::Application.environment}.sqlite")
+DataMapper.finalize
+DataMapper.auto_upgrade!
 
 
 class TaskViewer < Sinatra::Base
@@ -30,6 +32,8 @@ class TaskViewer < Sinatra::Base
 
   
   #DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/#{Sinatra::Application.environment}.sqlite")
+
+
 
   get '/' do
     session[ :isAuth ] = false

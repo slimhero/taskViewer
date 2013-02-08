@@ -3,6 +3,7 @@ require 'rubygems'
 require 'sinatra/base'
 require 'json'
 require './model/user'
+require './model/state'
 
 =begin
   GET    - Get data list
@@ -35,11 +36,18 @@ class Users < Sinatra::Base
     content_type :json
     
     param = request.body.read;
-    #user = User.new :name=>params[:name], :password=>params[:password], :email=>params[:email]
     param = JSON.parse( param );
-    param["email"] = param["email"].downcase!
 
-    user = User.new :name=>param["name"], :password=>param["password"], :email=>param["email"]
+    state = State.first( :constant => 103 )
+
+    user = User.new :name=>param["name"], 
+      :password=>param["password"], 
+      :email=>(param["email"]).downcase!, 
+      :state_id=>state.id
+
+    puts param.inspect
+    puts user.inspect
+    
 		if user.save
 			user.to_json()
 		else

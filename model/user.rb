@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 require 'rubygems'
+require 'data_mapper'
 
 class User 
   include DataMapper::Resource
@@ -8,7 +9,7 @@ class User
   property :name,      String,  
     :length => 150, 
     :required => true, 
-    :key => true
+		:unique => true,
     :messages => {
       :presence  => "Name must be filled",
       :is_unique => "Name is not unique"
@@ -25,8 +26,10 @@ class User
 		}
   property :password,  String,  :length => 254
   property :sha,       String,  :length => 254
-  property :isconfirm, Integer#, :default => 0
-  property :state,     Integer     
+  property :isconfirm, Boolean, :default => false
+  belongs_to :state
 end
 
-DataMapper.finalize
+
+#DataMapper.auto_upgrade!
+#DataMapper.finalize
