@@ -8,7 +8,7 @@ define([
 
       routes: {
         "dashboard": "dashboard",    // #help
-        "":          "app",  // #search/kiwis
+        "":          "dashboard",//"app",  // #search/kiwis
         "search/:query/p:page": "search"   // #search/kiwis/p7
       },
 

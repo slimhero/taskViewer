@@ -1,0 +1,17 @@
+<div class="accordion" id="{{ id }}">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#{{id}}" href="#{{idData}}">
+        <div class="btn-group pull-right" id="header-group">
+          <button class="btn btn-mini" data-toggle="refresh"><i class="icon-refresh"></i></button>
+          <button class="btn btn-mini" data-toggle="close"><i class="icon-remove"></i></button>
+        </div>{{name}}
+      </a>
+    </div>
+    <div class="accordion-body collapse in" id="{{idData}}">
+      <div class="accordion-inner">
+        <div id="tmpcontext">This place would be replaced by new view data</div>
+      </div>
+    </div>
+  </div>
+</div>

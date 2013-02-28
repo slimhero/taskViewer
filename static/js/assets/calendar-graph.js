@@ -7,9 +7,10 @@
       { value: 3, cond: "==", color: "#44a340" },
       { value: 4, cond: ">=", color: "#1e6823" } ],
     none: "#eee",
+    notInRange: "white",
     format: "YYYYMMDD",
-    toDate: (moment()),
-    fromDate: (moment()).add( "years", -1),
+    toDate: new Date(),//moment(),
+    fromDate: moment().add( "years", -1),
     place: "body",
     aobj_name: "activity",
     aobj_data: "data",
@@ -26,7 +27,29 @@
 $.activityCalendar = function ( options ){ 
   var AC = new Object( $.extend( $.activityCalendarSetup, options ) );
   
+  if( AC.fromDate >= AC.toDate ){
+    try{
+      AC.fromDate = AC.toDate.add( "years", -1);
+    }
+    catch(e){
+      AC.fromDate = moment( AC.toDate ).add( "years", -1);
+    };
+  };
+
   AC.table = function(){
+    // Remove table if it exists
+    // before create new
+    $( AC.place + " table" ).remove();
+    this.matrix = [];
+    var start = Number( AC.fromDate.format( "YYYYMMDD" ) );
+    var finish = 0;
+    try{
+      finish = Number( AC.toDate.format( "YYYYMMDD" ) );
+    }
+    catch( e ){
+      finish = moment( AC.toDate ).format( "YYYYMMDD" );
+    };
+
     for (var i = 0; i < 54; i++) {
       var week = new Array();
       for( var x = 0; x < 7; x++ ){
@@ -48,10 +71,26 @@ $.activityCalendar = function ( options ){
     for ( var x = 0; x<7; x++ ){
       tbl = tbl + "<tr>";
       for( var i =0; i< this.matrix.length; i++ ){
-        if( typeof this.matrix[i][x] != "string" )
-          tbl = tbl + "<td id=''></td>";
-        else
-          tbl = tbl + "<td id='" + this.matrix[i][x] + "'></td>";
+        if( typeof this.matrix[i][x] != "string" ){
+          //tbl = tbl + "<td style='background-color:white'></td>";
+          tbl = tbl + "<td style='background-color:" + this.notInRange + "'></td>";
+        }
+        else{
+          var strDate = this.matrix[i][x];
+          if( strDate != '' ){
+            var intDate = Number( moment( strDate, this.format ).format( "YYYYMMDD") ); 
+            if( intDate  >= start && intDate <= finish ){
+              tbl = tbl + "<td id='" + this.matrix[i][x] + "'></td>";
+            }
+            else{
+              tbl = tbl + "<td style='background-color:" + this.notInRange + "'></td>";
+            };
+          }
+          else{
+            //tbl = tbl + "<td style='background-color:white'></td>";
+            tbl = tbl + "<td style='background-color:" + this.notInRange + "'></td>";
+          };
+        };
       };
       tbl = tbl + "</tr>";
     };
@@ -61,7 +100,7 @@ $.activityCalendar = function ( options ){
   
   AC.getColor = function( val ){
     for( var i = 0; i < this.forexp.length; i++ ){
-      var str = "( " + val.toString() + " " + this.forexp[i].cond + " " +  this.forexp[i].cond + " " + this.forexp[i].value + ")" ;
+      var str = "( " + val.toString() + " " +  this.forexp[i].cond + " " + this.forexp[i].value + ")" ;
       var result = eval( str );
       if( result == true )
         return this.forexp[i].color;
@@ -71,51 +110,59 @@ $.activityCalendar = function ( options ){
   };
   
   AC.setData = function( array_data ){
-    alert( array_data );
+    //alert( array_data );
     var response = array_data;
     var datas;
-    if( typeof response == "string" )
-      response = new Object( response );
+    if( typeof response == "string" ){
+      //response = new Object( response );
+      response = eval( "(" + response + ")" );
+    }
       
-    alert( response.activity );
+   // alert( response.activity );
       
     var arrayName = this.aobj_name;
-    alert( "z=" + arrayName );
-    alert( response[arrayName] );
+   // alert( "z=" + arrayName );
+   // alert( response[arrayName] );
 
     if( !$.isArray( response )){
       if( typeof response == "object" ){
         //var arrayName = _self_.aobj_name;
-        alert( arrayName );
-        alert( 'обьект' );
-        alert( this.aobj_name );
-        alert( 'дата' );
-        alert( response[ arrayName ]);
+        //alert( arrayName );
+       // alert( 'обьект' );
+       // alert( this.aobj_name );
+       // alert( 'дата' );
+       // alert( response[ arrayName ]);
         
         datas = response[ arrayName ];
         if( $.isArray(  response[ this.aobj_name ] )){
-          alert( 'Inside' );
-          alert( response[ arrayName ] );
+        //  alert( 'Inside' );
+        //  alert( response[ arrayName ] );
           response = response[ arrayName ];
         }
         else
           response = [];
       };
     };
-    alert( "rjytw" );
-    alert( array_data[ this.aobj_name ]  );
-    for( var i = 0; i < array_data.length; i++ ){
-      var obj = array_data[i];
-      var d = obj[ this.aobj_date];
-      var val = obj[ this.aobj_count ];
+    //alert( "rjytw" );
+    //array_data = response.activity;
+    //alert( response/*array_data*/[ this.aobj_name ]  );
+    for( var i = 0; i < response/*array_data*/.length; i++ ){
+      var obj = response/*array_data*/[i];
+      //var d = obj[ this.aobj_date];
+      var d = obj.date;
+      //var val = obj[ this.aobj_count ];
+      var val = obj.count;
       
       $(("#"+d)).attr( "style", "background-color:" + this.getColor( val ) ); 
+      if( val > 0 ){
+        $(("#"+d)).addClass( "cell_content" ); 
+      };
     }
   };
   
   AC.run = function(){
     //_self_ = this;
-    alert( '1' );
+    //alert( '1' );
     
     if( $( this.place ).attr( "data-url" ) ){
       var response = $.ajax({ 

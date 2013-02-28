@@ -56,33 +56,23 @@ hr.soften {
   background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
   border: 0;
 }
-
-.js-calendar-graph table{
-  display: block;
+/*
+.navbar-inverse > .navbar-inner {
+    background-repeat: repeat-x;
+    background-image: url("/img/web_sprite_bgs.png");
 }
 
-.js-calendar-graph table td{
-  box-sizing: border-box;
-  
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  line-height: 10px;
-
-  border: 2px solid white;
-  background-color: #eee;
-  color: silver; 
-}
-.cell_wo{
-  padding: 5px;
+.nav > li > a {
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(187, 187, 187);
+    text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.75);
 }
 
-.cell_h{
-  padding: 0px;
+.nav > li > a:focus {
+    color: rgb(255, 255, 255);
 }
 
-.cell:hover
-{
-  outline: 1px solid #666;
-}
+*/
 
 

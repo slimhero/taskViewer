@@ -11,9 +11,9 @@ require.config({
       ],
       exports: '_'
     },
-    tooltip: {
+    /*tooltip: {
       deps:[ 'bootstrap' ]
-    },
+    },*/
 		underscore: {
 			exports: '_'
 		},
@@ -39,13 +39,14 @@ require.config({
     },
     message:{
       deps: ['jqueryPnotify']
-    }
+    }/*,
+    bootstrapTooltip:{
+      deps:['jquery', 'bootstrap']
+    }*/
     ,
-    kendo: {
+    jqueryGridster: {
       deps: ['jquery']
-      //,
-      //exports: 'window.kendo'
-    }
+    }  
 	},
 
 
@@ -79,7 +80,7 @@ require.config({
 		backbone: 'lib/backbone',
 		//backboneLocalstorage: '/js/lib/backbone.localStorage',
     backboneLayoutManager: 'lib/backbone.layoutManager',
-    moment: 'lib/moment.js',
+    moment: 'lib/moment',
     handlebars: 'lib/handlebars-1.0.rc.1',
     hbs: 'lib/hbs',
     //handlebars: '/js/lib/handlebars-1.0.rc.1',
@@ -87,12 +88,11 @@ require.config({
     json2: 'lib/json2',
     
     bootstrap: 'lib/bootstrap',
-    tooltip: 'lib/bootstrap-tooltip',
+    /*bootstrapTooltip: 'lib/bootstrap-tooltip',*/
     jqueryPnotify: 'lib/jquery.pnotify',
-    message: 'assets/message'
-    ,
-    kendo: 'lib/kendoui/kendo.web'
-	  
+    message: 'assets/message',
+
+	  jqueryGridster: 'lib/jquery.gridster' 
   }
 });
 

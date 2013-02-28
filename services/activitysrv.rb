@@ -16,12 +16,12 @@ class Activity < Sinatra::Base
   # Get user data by id
   get '/api/activity/year' do
     { :activity => [  
-        {:data => "20130111", :count => 2},
-        {:data => "20130112", :count => 1},
-        {:data => "20130113", :count => 10},
-        {:data => "20130114", :count => 0},
-        {:data => "20130119", :count => 2 },
-        {:data => "20130121", :count => 1} 
+        {:date => "20130111", :count => 2},
+        {:date => "20130112", :count => 1},
+        {:date => "20130113", :count => 10},
+        {:date => "20130114", :count => 0},
+        {:date => "20130119", :count => 2 },
+        {:date => "20130121", :count => 1} 
       ]
     }.to_json
   end
